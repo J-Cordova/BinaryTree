@@ -29,6 +29,7 @@ public class Tree
     {
         if (node == null)
             return;
+        
         RecursiveInorder(node.getLeftChild());
         System.out.println(node.getData().toString());
         RecursiveInorder(node.getRightChild());
