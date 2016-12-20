@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Stack;
+
 public class Tree
 {
     Node root = new Node("I Am Root", null, null);
@@ -56,6 +58,19 @@ public class Tree
     public void IterativeInorder(Node node)
     {
 
+        Stack<Node> s = new Stack<>();
+        while ( !s.isEmpty() || node != null)
+        if (node != null)
+        {
+            s.push(node);
+            node = node.getLeftChild();// ? node.left
+        }
+        else
+        {
+            node = s.pop();//node?s.pop()
+            System.out.println(node.getData().toString());//visit(node)
+            node = node.getRightChild(); //node?node.right
+        }
     }
 
     public void IterativePreorder(Node node)

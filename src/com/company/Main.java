@@ -10,16 +10,22 @@ public class Main {
         System.out.println();
         tree.RecursiveInorder(tree.root);
 
+        System.out.println();
+        System.out.println("In Order -----------");
+        System.out.println();
+        tree.IterativeInorder(tree.root);
 
-        System.out.println();
-        System.out.println("Post Order ---------");
-        System.out.println();
-        tree.RecursivePostorder(tree.root);
 
+        //System.out.println();
+        //System.out.println("Post Order ---------");
+        //System.out.println();
+        //tree.RecursivePostorder(tree.root);
+        //
+        //
+        //System.out.println();
+        //System.out.println("Pre Order ----------");
+        //System.out.println();
+        //tree.RecursivePreorder(tree.root);
 
-        System.out.println();
-        System.out.println("Pre Order ----------");
-        System.out.println();
-        tree.RecursivePreorder(tree.root);
     }
 }
