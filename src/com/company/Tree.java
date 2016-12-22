@@ -19,9 +19,9 @@ public class Tree
 
     public Node CreateTestData()
     {
-        Node node = new Node("test Root",
-                            new Node("Left 1", new Node("left1  left", null,null), new Node("left1 right", null, null)),
-                            new Node("Right 1", new Node("right  left", null,null), new Node("right1 right", null, null)));
+        Node node = new Node("1",
+                            new Node("2", new Node("4", null,null), new Node("5", null, null)),
+                            new Node("3", new Node("6", null,null), new Node("7", null, null)));
 
         return node;
     }
@@ -31,7 +31,7 @@ public class Tree
     {
         if (node == null)
             return;
-        
+
         RecursiveInorder(node.getLeftChild());
         System.out.println(node.getData().toString());
         RecursiveInorder(node.getRightChild());
@@ -57,7 +57,6 @@ public class Tree
 
     public void IterativeInorder(Node node)
     {
-
         Stack<Node> s = new Stack<>();
         while ( !s.isEmpty() || node != null)
         if (node != null)
@@ -75,16 +74,71 @@ public class Tree
 
     public void IterativePreorder(Node node)
     {
+        //print
+        //left
+        //right
+
+        Stack<Node> stack = new Stack<>();
+
+        while (!stack.isEmpty() || node != null)
+        {
+            if(node == null)
+            {
+                node = stack.pop();
+                node = node.getRightChild();
+            }
+            else
+            {
+                System.out.println(node.getData());
+                stack.push(node);
+                node = node.getLeftChild();
+            }
+        }
 
     }
-
+    
     public void IterativePostorder(Node node)
     {
+        Stack<Node> stack = new Stack<Node>();
+        Node lastVisited = null;
 
+        while(!stack.isEmpty() || node != null)
+        {
+            if (node != null)
+            {
+                node = node.getLeftChild();
+            }
+            else
+            {
+                Node check = stack.peek();
+
+                if (check.getRightChild() != null && check.getRightChild() != lastVisited)
+                {
+                    node = check.getRightChild();
+                }
+                else
+                {
+                    lastVisited = stack.pop();
+                    System.out.println(check.getData());
+                }
+
+            }
+
+        }
     }
 
     public Object Search()
     {
         return null;
+    }
+
+    public void Insert(Node node)
+    {
+
+    }
+
+    public void Delete(Node node)
+    {
+
     }
 }

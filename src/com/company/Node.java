@@ -50,4 +50,9 @@ public class Node
     {
         RightChild = rightChild;
     }
+
+    public int compareTo(Node node)
+    {
+        return Data.toString().compareTo(node.getData().toString());
+    }
 }
