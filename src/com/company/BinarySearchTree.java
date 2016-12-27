@@ -2,9 +2,15 @@ package com.company;
 
 import java.util.Stack;
 
-public class Tree
+public class BinarySearchTree
 {
-    Node root = new Node("I Am Root", null, null);
+    Node root = null;
+
+    public BinarySearchTree() {}
+    public BinarySearchTree(Node node)
+    {
+        root = node;
+    }
 
     public Node getRoot()
     {
@@ -19,9 +25,10 @@ public class Tree
 
     public Node CreateTestData()
     {
-        Node node = new Node("1",
-                            new Node("2", new Node("4", null,null), new Node("5", null, null)),
-                            new Node("3", new Node("6", null,null), new Node("7", null, null)));
+        Node node = new Node(1,
+                            new Node(2, new Node(3, null,null), new Node(4, null, null)),
+
+                            new Node(5, new Node(6, null,null), new Node(7, null, null)));
 
         return node;
     }
@@ -33,7 +40,7 @@ public class Tree
             return;
 
         RecursiveInorder(node.getLeftChild());
-        System.out.println(node.getData().toString());
+        System.out.println(node.getData());
         RecursiveInorder(node.getRightChild());
     }
 
@@ -41,7 +48,7 @@ public class Tree
     {
         if (node == null)
             return;
-        System.out.println(node.getData().toString());
+        System.out.println(node.getData());
         RecursivePreorder(node.getLeftChild());
         RecursivePreorder(node.getRightChild());
     }
@@ -52,7 +59,7 @@ public class Tree
             return;
         RecursivePostorder(node.getLeftChild());
         RecursivePostorder(node.getRightChild());
-        System.out.println(node.getData().toString());
+        System.out.println(node.getData());
     }
 
     public void IterativeInorder(Node node)
@@ -67,7 +74,7 @@ public class Tree
         else
         {
             node = s.pop();//node?s.pop()
-            System.out.println(node.getData().toString());//visit(node)
+            System.out.println(node.getData());//visit(node)
             node = node.getRightChild(); //node?node.right
         }
     }
@@ -96,7 +103,7 @@ public class Tree
         }
 
     }
-    
+
     public void IterativePostorder(Node node)
     {
         Stack<Node> stack = new Stack<Node>();
@@ -127,9 +134,34 @@ public class Tree
         }
     }
 
-    public Object Search()
+
+    public Boolean Search(int searchVal)
     {
-        return null;
+        return Search(searchVal, getRoot());
+    }
+
+    private Boolean Search(int searchVal, Node node)
+    {
+        if (node == null)
+        {
+            return false;
+        }
+
+        if (node.getData() == searchVal)
+        {
+            return true;
+        }
+        else
+        {
+            if (searchVal < node.getData())
+            {
+                return Search(searchVal,node.getLeftChild());
+            }
+            else
+            {
+                return Search(searchVal,node.getRightChild());
+            }
+        }
     }
 
     public void Insert(Node node)

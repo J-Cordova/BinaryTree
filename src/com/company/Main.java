@@ -3,17 +3,17 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	    Tree tree = new Tree();
-	    tree.root = tree.CreateTestData();
+	    BinarySearchTree binarySearchTree = new BinarySearchTree();
+	    binarySearchTree.root = binarySearchTree.CreateTestData();
 
         System.out.println("Recursive In Order -----------");
         System.out.println();
-        tree.RecursiveInorder(tree.root);
+        binarySearchTree.RecursiveInorder(binarySearchTree.root);
 
         System.out.println();
         System.out.println("Iterative In Order -----------");
         System.out.println();
-        tree.IterativeInorder(tree.root);
+        binarySearchTree.IterativeInorder(binarySearchTree.root);
 
         System.out.println("-------------------------------------------");
 
@@ -21,24 +21,24 @@ public class Main {
         System.out.println();
         System.out.println("Recursive Post Order ---------");
         System.out.println();
-        tree.RecursivePostorder(tree.root);
+        binarySearchTree.RecursivePostorder(binarySearchTree.root);
 
         System.out.println();
         System.out.println("Iterative Post Order ---------");
         System.out.println();
-        tree.IterativePostorder(tree.root);
+        binarySearchTree.IterativePostorder(binarySearchTree.root);
 
         System.out.println("-------------------------------------------");
 
         System.out.println();
         System.out.println("Recursive Pre Order ----------");
         System.out.println();
-        tree.RecursivePreorder(tree.root);
+        binarySearchTree.RecursivePreorder(binarySearchTree.root);
 
         System.out.println();
         System.out.println("Iterative Pre Order ----------");
         System.out.println();
-        tree.IterativePreorder(tree.root);
+        binarySearchTree.IterativePreorder(binarySearchTree.root);
 
     }
 }

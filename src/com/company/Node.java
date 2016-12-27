@@ -3,30 +3,29 @@ package com.company;
 
 public class Node
 {
-    private Object Data;
+    private int Data;
     private Node LeftChild;
     private Node RightChild;
 
     public Node()
     {
-        Data = null;
         LeftChild = null;
         RightChild = null;
     }
 
-    public Node(Object data, Node left, Node right)
+    public Node(int data, Node left, Node right)
     {
         Data = data;
         LeftChild = left;
         RightChild = right;
     }
 
-    public Object getData()
+    public int getData()
     {
         return Data;
     }
 
-    public void setData(Object data)
+    public void setData(int data)
     {
         Data = data;
     }
@@ -53,6 +52,17 @@ public class Node
 
     public int compareTo(Node node)
     {
-        return Data.toString().compareTo(node.getData().toString());
+        if (node.getData() == this.getData())
+        {
+            return 0;
+        }
+        else if(node.getData() > this.getData())
+        {
+            return -1;
+        }
+        else
+        {
+            return 1;
+        }
     }
 }
